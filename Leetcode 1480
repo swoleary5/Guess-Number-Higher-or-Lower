@@ -1,0 +1,10 @@
+1.2M Submissions, Speed beats 97%, Memory Beats 73%
+
+class Solution:
+    def runningSum(self, nums):
+        sum = 0
+        rtrn = []
+        for i in nums:
+            sum += i
+            rtrn.append(sum)
+        return rtrn
