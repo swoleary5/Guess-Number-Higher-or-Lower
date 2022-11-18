@@ -1,0 +1,40 @@
+#19% Acceptance Rate for Problem Overall
+#Beats 68% in Speed and 98% in Memory
+
+class Solution:
+    def equalFrequency(self, word):
+        #append the number of instances of each character to a dictionary
+        dict = {}
+        for i in word:
+            if i not in dict:
+                dict.update({i: 1})
+            else: 
+                dict[i] += 1
+                
+        #Create a list of the dictionary's values        
+        values = list(dict.values())
+
+        #Return True all characters are seen once
+        if sum(values) == len(values):
+            return True
+
+        #Return True if there is only one character
+        if len(dict) == 1:
+            return True
+        
+        #Return True if all values match except the minimum of 1
+        #EX: "aabbc" returns True
+        num_max = values.count(max(values))
+        test = values.count(1)
+        if num_max == len(values) - 1 and test == 1:
+            return True
+            
+        #Return True if there is one character with one more instance than the others
+        #EX: "aabbccc" returns True
+        mini = min(values)
+        num_mini = values.count(mini)
+        if num_mini + num_max == len(values) and num_max == 1 and max(values) - 1 == mini:
+            return True
+            
+        #return False Otherwise  
+        return False
