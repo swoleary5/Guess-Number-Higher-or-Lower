@@ -1,0 +1,12 @@
+class Solution:
+    def canConstruct(self, ransomNote, magazine):
+        mnote = collections.Counter(magazine)
+
+        for i in range(len(ransomNote)):
+            if ransomNote[i] not in mnote:
+                return False
+            else:
+                if mnote[ransomNote[i]] <= 0:
+                    return False
+                mnote[ransomNote[i]] -= 1
+        return True
