@@ -1,0 +1,11 @@
+#Speed Beats 76%, Memory beats 86%
+
+class Solution:
+    def removeDuplicates(self, s):
+        str = []
+        for c in s:
+            if str and str[-1] == c: 
+                str.pop()
+            else:
+                 str.append(c)
+        return "".join(str)
