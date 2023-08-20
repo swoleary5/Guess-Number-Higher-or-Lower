@@ -1,0 +1,9 @@
+class Solution:
+    def kidsWithCandies(self, candies, extraCandies):
+        output = []
+        for item in candies:
+            if item + extraCandies >= max(candies):
+                output.append(True)
+            else:
+                output.append(False)
+        return output
