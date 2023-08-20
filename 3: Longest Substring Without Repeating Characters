@@ -1,0 +1,28 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        if len(s) == 0:
+            return 0
+        elif len(s) == 1:
+            return 1
+        elif len(s) == 2:
+            if s[0] == s[1]:
+                return 1
+            else: return 2
+        left = 0
+        right = 1
+        memo = {}
+        count = []
+        memo.update({s[left]:left})
+        memo.update({s[right]:right})
+        if len(memo) == 1:
+            right += 1
+            count.append(right - left)
+        while right <= len(s) - 1:
+            if memo.get(s[right]) is None:
+                memo.update({s[right]:right})
+            else:
+                count.append(right - left)
+                left = memo[s[right]] + 1
+                memo.update({s[left]:right})
+            right += 1
+        return max(count)
