@@ -1,0 +1,13 @@
+class Solution:
+    def countHomogenous(self, s):
+        total = count = l = r = 0
+        while r < len(s):
+            if s[l] == s[r]:
+                count += 1
+                r += 1
+            else:
+                total += (count * (count + 1)) // 2
+                count = 0
+                l = r
+        total += (count * (count + 1)) // 2
+        return total % (10**9 + 7)
