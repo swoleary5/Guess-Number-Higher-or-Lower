@@ -1,0 +1,15 @@
+class Solution:
+    def sortedSquares(self, nums):
+        nums = [x ** 2 for x in nums]
+        output = []
+        l = 0
+        r = len(nums) - 1
+        while r >= l:
+            if nums[l] < nums[r]:
+                output.append(nums[r])
+                r -= 1
+            else:
+                output.append(nums[l])
+                l += 1
+        return output[::-1]
+            
