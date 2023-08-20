@@ -1,0 +1,17 @@
+class Solution:
+    def removeDuplicates(self, nums):
+        l = 0
+        r = 1
+        count = 1
+        while r < len(nums):
+            if nums[l] != nums[r]:
+                r += 1
+                l += 1
+                count = 1
+            else: 
+                count += 1
+                if count < 3:
+                    r += 1
+                    l += 1
+                else:
+                    nums.pop(r)
