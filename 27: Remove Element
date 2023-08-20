@@ -1,0 +1,10 @@
+class Solution:
+    def removeElement(self, nums, val):
+        k = 0
+        iterator = 0
+        while iterator < len(nums):
+            if nums[iterator] == val:
+                nums.pop(iterator)
+                k += 1
+            else:
+                iterator += 1
