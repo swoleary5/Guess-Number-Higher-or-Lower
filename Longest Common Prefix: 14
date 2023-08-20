@@ -1,0 +1,17 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        r = 1
+        mini = strs[0]
+        while r < len(strs):
+            max_pre = min(len(strs[0]), len(strs[r]))
+            while max_pre >= 0:
+                if max_pre == 0:
+                    return ""
+                if strs[0][:max_pre] == strs[r][:max_pre]:
+                    if len(mini) > len(strs[0][:max_pre]):
+                        mini = strs[0][:max_pre]
+                    break
+                else:
+                    max_pre -= 1
+            r += 1
+        return mini
