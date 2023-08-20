@@ -1,0 +1,15 @@
+class Solution:
+    def searchInsert(self, nums, target):
+        lent = len(nums)
+        high = lent - 1
+        low = 0
+        mid = (low + high)//2
+        while high - low > 1:
+            if target > nums[mid]:
+                low = mid
+                mid = (low + high)//2
+            elif target < nums[mid]:
+                high = mid
+                mid = (low + high)//2
+            else:
+                return low
