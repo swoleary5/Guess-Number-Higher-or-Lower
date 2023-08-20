@@ -1,0 +1,18 @@
+class Solution:
+    def wordPattern(self, pattern, s):
+        s = list(s.split(" "))
+        if len(s) != len(pattern):
+            return False
+
+        dict = {}
+
+        for i in range(len(pattern)):
+            if pattern[i] not in dict:
+                if s[i] not in dict.values():
+                    dict[pattern[i]] = s[i]
+                else:
+                    return False
+            else:
+                if dict[pattern[i]] != s[i]:
+                    return False
+        return True
