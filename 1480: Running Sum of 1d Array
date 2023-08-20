@@ -1,5 +1,3 @@
-1.2M Submissions, Speed beats 97%, Memory Beats 73%
-
 class Solution:
     def runningSum(self, nums):
         sum = 0
