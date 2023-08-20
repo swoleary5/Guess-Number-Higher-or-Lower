@@ -1,0 +1,7 @@
+class Solution:
+    def plusOne(self, digits):
+        lst = [str(x) for x in digits]
+        num = "".join(lst)
+        num = str(int(num) + 1)
+        rtrn = [int(x) for x in num]
+        return rtrn
