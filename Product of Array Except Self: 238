@@ -1,0 +1,13 @@
+import math
+
+class Solution:
+    def productExceptSelf(self, nums):
+        output = []
+        dict = {}
+        for i, item in enumerate(nums):
+            if item in dict:
+                output.append(dict[item])
+            else:
+                dict[item] = prod(nums[:i] + nums[i+1:])
+                output.append(dict[item])
+        return output
