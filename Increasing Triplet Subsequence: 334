@@ -1,0 +1,11 @@
+class Solution:
+    def increasingTriplet(self, nums):
+        f = s = float("inf")
+        for item in nums:
+            if item <= f:
+                f = item
+            elif item <= s:
+                s = item
+            else:
+                return True
+        return False
