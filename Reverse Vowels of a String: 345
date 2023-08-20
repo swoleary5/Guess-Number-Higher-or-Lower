@@ -1,0 +1,24 @@
+class Solution:
+    def reverseVowels(self, s):
+        l, r = 0, len(s) - 1
+        vow1 = vow2 = ""
+        vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
+        s = list(s)
+        while l < r:
+            if s[l] in vowels:
+                vow1 = s[l]
+            if s[r] in vowels:
+                vow2 = s[r]
+            if vow1 == s[l] and vow2 == s[r]:
+                s[l] = vow2
+                s[r] = vow1
+                l += 1
+                r -= 1
+            elif vow1 == s[l]:
+                r -= 1
+            elif vow2 == s[r]:
+                l += 1
+            else:
+                l += 1
+                r -= 1
+        return "".join(s)
