@@ -1,0 +1,7 @@
+class Solution:
+    def merge(self, nums1, m, nums2, n):
+        iterator = -1
+        for i, item in enumerate(nums2):
+            nums1[iterator] = nums2[i]
+            iterator -= 1
+        nums1.sort()
