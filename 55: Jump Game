@@ -1,0 +1,23 @@
+class Solution:
+    def canJump(self, nums):
+        if len(nums) == 1 or 0 not in nums:
+            return True
+
+        if nums[0] == 0:
+            return False
+
+        goal = len(nums) - 1
+        cur = goal - 1
+        for item in nums:
+            if nums[cur] >= goal - cur:
+                if cur == 0:
+                    return True
+                goal -= (goal - cur)
+                cur -= 1
+            else:
+                if cur == 0:
+                    return False
+                cur -= 1
+
+
+        
